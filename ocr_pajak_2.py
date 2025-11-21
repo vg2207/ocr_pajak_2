@@ -6,13 +6,9 @@ import xlsxwriter
 import glob
 import shutil
 import zipfile
-# import pytesseract
-import cv2
-from pdf2image import convert_from_path
 import time
 from io import BytesIO
 import datetime
-# import easyocr
 import re
 from pypdf import PdfReader
 import pdfplumber
