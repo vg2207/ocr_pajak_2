@@ -93,8 +93,9 @@ if user_input_excel is not None:
                     df['TANGGAL'][i] = str(extracted_text_tanggal[0])
 
                 except:
-                    df['NO BILLING'][i] = ''
-                    df['TANGGAL'][i] = ''
+                    pass
+                    # df['NO BILLING'][i] = ''
+                    # df['TANGGAL'][i] = ''
     
     
                 try :
@@ -126,9 +127,10 @@ if user_input_excel is not None:
                     df['JUMLAH SETORAN'][i] = str(extracted_text_jumlah_setoran[0])
 
                 except :
-                    df['NTPN'][i] = ''
-                    df['NOMOR DOKUMEN'][i] = ''
-                    df['JUMLAH SETORAN'][i] = ''
+                    pass
+                    # df['NTPN'][i] = ''
+                    # df['NOMOR DOKUMEN'][i] = ''
+                    # df['JUMLAH SETORAN'][i] = ''
                     
                 
 
