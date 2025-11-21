@@ -57,8 +57,8 @@ if user_input_excel is not None:
                 with zipfile.ZipFile(user_input_folder_bpn, 'r') as z:
                     z.extractall(path_to_BPN_folder)
                     st.success('BPN Folder Uploaded Successfully!')
-                else:
-                    st.sidebar.warning('You need to upload zip folder for BPN Folder')
+            else:
+                st.sidebar.warning('You need to upload zip folder for BPN Folder')
 
             # Pengolahan data
             df = pd.read_excel(user_input_excel)
