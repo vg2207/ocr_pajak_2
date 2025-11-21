@@ -44,16 +44,21 @@ if user_input_excel is not None:
                 os.mkdir(path_to_billing_folder)
             with zipfile.ZipFile(path_to_billing_folder, 'r') as z:
                 z.extractall(path_to_billing_folder)
-            
             st.success('Billing Folder Uploaded Successfully!')
         else:
             st.sidebar.warning('You need to upload zip folder for Billing Folder')
         
         if user_input_folder_bpn is not None:
             if user_input_folder_bpn.name.endswith('.zip'):
-                st.success('BPN Folder Uploaded Successfully!')
-            else:
-                st.sidebar.warning('You need to upload zip folder for BPN Folder')
+                path_to_BPN_folder = os.path.join(os.getcwd(), os.path.splitext(user_input_folder_bpn.name)[0])
+                st.write(path_to_BPN_folder)
+                if os.path.exists(path_to_BPN_folder) == False:
+                    os.mkdir(path_to_BPN_folder)
+                with zipfile.ZipFile(user_input_folder_bpn, 'r') as z:
+                    z.extractall(path_to_BPN_folder)
+                    st.success('BPN Folder Uploaded Successfully!')
+                else:
+                    st.sidebar.warning('You need to upload zip folder for BPN Folder')
 
             # Pengolahan data
             df = pd.read_excel(user_input_excel)
