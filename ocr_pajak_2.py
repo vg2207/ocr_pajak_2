@@ -39,11 +39,12 @@ if user_input_excel is not None:
     if user_input_folder_billing is not None:
         if user_input_folder_billing.name.endswith('.zip'):
             path_to_billing_folder = os.path.join(os.getcwd(), os.path.splitext(user_input_folder_billing.name)[0])
+            st.write(path_to_billing_folder)
             if os.path.exists(path_to_billing_folder) == False:
                 os.mkdir(path_to_billing_folder)
             with zipfile.ZipFile(path_to_billing_folder, 'r') as z:
                 z.extractall(path_to_billing_folder)
-            st.write(path_to_billing_folder)
+            
             st.success('Billing Folder Uploaded Successfully!')
         else:
             st.sidebar.warning('You need to upload zip folder for Billing Folder')
