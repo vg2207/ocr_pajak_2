@@ -31,25 +31,29 @@ user_input_folder_billing = st.file_uploader("Upload pdf Billing Folder", type=[
 user_input_folder_bpn = st.file_uploader("Upload pdf BPN Folder", type=['zip'], accept_multiple_files=False, key='file_uploader_3')
 
 if user_input_excel is not None:
+    if user_input_excel.name.endswith('.xlsx'):
+        st.success('File Excel Uploaded Successfully!')
+    else:
+        st.sidebar.warning('You need to upload an excel file')
+        
     if user_input_folder_billing is not None:
+        if user_input_folder_billing.name.endswith('.zip'):
+            st.success('Billing Folder Uploaded Successfully!')
+        else:
+            st.sidebar.warning('You need to upload zip folder for Billing Folder')
+        
         if user_input_folder_bpn is not None:
-            if user_input_excel.name.endswith('.xlsx'):
-                df = pd.read_excel(user_input_excel)
-                st.success('File Excel Uploaded Successfully!')
-                st.write(df)
-            else:
-                st.sidebar.warning('You need to upload an excel file')
-            
-            if user_input_folder_billing.name.endswith('.zip'):
-                st.success('Billing Folder Uploaded Successfully!')
-            else:
-                st.sidebar.warning('You need to upload zip folder for Billing Folder'')
-
             if user_input_folder_bpn.name.endswith('.zip'):
                 st.success('BPN Folder Uploaded Successfully!')
             else:
                 st.sidebar.warning('You need to upload zip folder for BPN Folder')
 
+            # Pengolahan data
+            df = pd.read_excel(user_input_excel)
+            st.write(df)
+            for i in range(len(df)):
+                no_po = df['NO PO'][i]
+                st.write(no_po)
             
                 
         else :
