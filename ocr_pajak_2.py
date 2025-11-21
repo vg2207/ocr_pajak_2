@@ -39,7 +39,6 @@ if user_input_excel is not None:
     if user_input_folder_billing is not None:
         if user_input_folder_billing.name.endswith('.zip'):
             path_to_billing_folder = os.path.join(os.getcwd(), os.path.splitext(user_input_folder_billing.name)[0])
-            st.write(path_to_billing_folder)
             if os.path.exists(path_to_billing_folder) == False:
                 os.mkdir(path_to_billing_folder)
             with zipfile.ZipFile(user_input_folder_billing, 'r') as z:
@@ -51,7 +50,6 @@ if user_input_excel is not None:
         if user_input_folder_bpn is not None:
             if user_input_folder_bpn.name.endswith('.zip'):
                 path_to_BPN_folder = os.path.join(os.getcwd(), os.path.splitext(user_input_folder_bpn.name)[0])
-                st.write(path_to_BPN_folder)
                 if os.path.exists(path_to_BPN_folder) == False:
                     os.mkdir(path_to_BPN_folder)
                 with zipfile.ZipFile(user_input_folder_bpn, 'r') as z:
@@ -64,25 +62,17 @@ if user_input_excel is not None:
             df = pd.read_excel(user_input_excel)
             st.write(df)
             st.write(path_to_billing_folder)
+            st.write(path_to_BPN_folder)
 
-            # path_to_pdf = os.path.join(target_path, str(os.listdir(target_path)[0]))
-            # # st.write(path_to_pdf)
-    
-            # file_path_pdf = os.listdir(path_to_pdf)
-            # # st.write(file_path_pdf)
+            
             
             for i in range(len(df)):
                 no_po = df['NO PO'][i]
                 nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
-                
-                st.write(nama_file_billing)
-                pattern = nama_file_billing # Match all .txt files in the current directory
-                # directory_path = "."
+                path_to_pdf_billing = os.path.join(target_path, nama_file_billing)
+                st.write(path_to_pdf_billing)
 
-                # found_files = []
-                # for filename in os.listdir(directory_path):
-                #     if re.match(regex_pattern, filename):
-                #         found_files.append(filename)
+
             
                 
         else :
