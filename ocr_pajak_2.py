@@ -82,6 +82,17 @@ if user_input_excel is not None:
                 a = [extracted_text]
                 st.write(a)
 
+                extracted_text_b567 = ""
+
+                with pdfplumber.open(path_to_pdf_billing) as pdf:
+                    for page in pdf.pages:
+                        # Use a corrected bounding box (x0, y0, x1, y1)
+                        # (left, bottom, right, top)
+                        cropped = page.within_bbox((int(0/20.35*595), int((3.5)/20.35*595), int(15/20.35*595), int((4.5)/20.35*595)))
+                        text = cropped.extract_text()
+                        if text:
+                            extracted_text_b567 += text.strip()
+
 
             
                 
