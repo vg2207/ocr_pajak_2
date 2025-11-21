@@ -53,7 +53,9 @@ if user_input_excel is not None:
             st.write(df)
             for i in range(len(df)):
                 no_po = df['NO PO'][i]
-                st.write(no_po)
+                nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
+                
+                st.write(nama_file_billing)
             
                 
         else :
