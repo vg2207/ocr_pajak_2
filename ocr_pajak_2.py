@@ -42,7 +42,7 @@ if user_input_excel is not None:
             st.write(path_to_billing_folder)
             if os.path.exists(path_to_billing_folder) == False:
                 os.mkdir(path_to_billing_folder)
-            with zipfile.ZipFile(path_to_billing_folder, 'r') as z:
+            with zipfile.ZipFile(user_input_folder_billing, 'r') as z:
                 z.extractall(path_to_billing_folder)
             st.success('Billing Folder Uploaded Successfully!')
         else:
