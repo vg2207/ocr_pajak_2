@@ -71,7 +71,7 @@ if user_input_excel is not None:
                 nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
                 path_to_pdf_billing = os.path.join(path_to_billing_folder, nama_file_billing)
                 st.write(path_to_pdf_billing)
-                st.write(os.listdir(path_to_billing_folder[0]))
+                st.write(os.listdir('/mount/src/ocr_pajak_2/'))
 
                 reader_billing = PdfReader(path_to_pdf_billing)
                 a=[]
