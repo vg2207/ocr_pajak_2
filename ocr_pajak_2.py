@@ -68,10 +68,10 @@ if user_input_excel is not None:
             
             for i in range(len(df)):
                 no_po = df['NO PO'][i]
-                nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
-                path_to_pdf_billing = os.path.join(path_to_billing_folder, nama_file_billing)
+                nama_file_billing = 'BILLING ' + str(no_po) + '.pdf'
+                path_to_pdf_billing = os.path.join(path_to_billing_folder, os.path.splitext(user_input_folder_billing.name)[0], nama_file_billing)
                 st.write(path_to_pdf_billing)
-                st.write(os.listdir('/mount/src/ocr_pajak_2/Billing/Billing'))
+                # st.write(os.listdir('/mount/src/ocr_pajak_2/Billing/Billing'))
 
                 reader_billing = PdfReader(path_to_pdf_billing)
                 a=[]
