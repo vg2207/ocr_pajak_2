@@ -33,7 +33,7 @@ user_input_folder_bpn = st.file_uploader("Upload pdf BPN Folder", type=['zip'], 
 if user_input_excel is not None:
     if user_input_folder_billing is not None:
         if user_input_folder_bpn is not None:
-
+            pass
         else :
             st.error("You have to upload BPN Folder")
     else :
