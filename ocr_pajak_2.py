@@ -56,6 +56,9 @@ if user_input_excel is not None:
                 nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
                 
                 st.write(nama_file_billing)
+                pattern = nama_file_billing # Match all .txt files in the current directory
+                found_files = glob.glob(pattern)
+                st.write(found_files)
             
                 
         else :
