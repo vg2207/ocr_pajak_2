@@ -1,0 +1,12 @@
+jurigged
+streamlit
+pandas
+XlsxWriter
+openpyxl
+pytesseract
+opencv-python-headless
+pdf2image
+#easyocr
+pypdf
+#PyPDF2
+pdfplumber
