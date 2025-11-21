@@ -92,6 +92,7 @@ if user_input_excel is not None:
                         text = cropped.extract_text()
                         if text:
                             extracted_text_b567 += text.strip()
+                st.write(extracted_text_b567)
 
 
             
