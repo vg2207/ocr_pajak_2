@@ -91,6 +91,14 @@ if user_input_excel is not None:
                 df['NO BILLING'][i] = extracted_text_no_billing[0]
                 df['TANGGAL'][i] = extracted_text_tanggal[0]
 
+
+
+                pattern_nama_file_BPN = 'BPN_' + str(extracted_text_no_billing[0])
+                found_files = glob.glob(pattern_nama_file_BPN)
+                st.write(found_files)
+                path_to_pdf_billing = os.path.join(path_to_billing_folder, os.path.splitext(user_input_folder_billing.name)[0], nama_file_billing)
+                
+
         
 
 
