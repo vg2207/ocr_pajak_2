@@ -72,6 +72,15 @@ if user_input_excel is not None:
                 path_to_pdf_billing = os.path.join(path_to_billing_folder, nama_file_billing)
                 st.write(path_to_pdf_billing)
 
+                reader_billing = PdfReader(path_to_pdf_billing)
+                a=[]
+                # Iterate through pages and extract text
+                extracted_text = ""
+                for page in reader_billing.pages:
+                    extracted_text += page.extract_text()
+                a = [extracted_text]
+                st.write(a)
+
 
             
                 
