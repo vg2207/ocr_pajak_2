@@ -108,7 +108,7 @@ if user_input_excel is not None:
                 a = [extracted_text]
                 # st.write(a)
 
-                extracted_text_ntpn = re.findall('(?<=NTPN : )[^ ]+(?=\s)', a[0])
+                extracted_text_ntpn = re.findall('(?<=NTPN : )[^ ].*', a[0])
                 extracted_text_no_dokumen = re.findall('(?<=NOMOR DOKUMEN : )[^ ]+(?=\s)', a[0])
                 extracted_text_jumlah_setoran = re.findall('(?<=JUMLAH SETORAN : )[^ ]+(?=\s)', a[0])
 
