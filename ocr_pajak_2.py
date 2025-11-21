@@ -6,7 +6,7 @@ import xlsxwriter
 import glob
 import shutil
 import zipfile
-import pytesseract
+# import pytesseract
 import cv2
 from pdf2image import convert_from_path
 import time
@@ -38,6 +38,11 @@ if user_input_excel is not None:
         
     if user_input_folder_billing is not None:
         if user_input_folder_billing.name.endswith('.zip'):
+            path_to_billing_folder = os.path.join(os.getcwd(), os.path.splitext(user_input_folder_billing.name)[0])
+            if os.path.exists(path_to_billing_folder) == False:
+                os.mkdir(path_to_billing_folder)
+            with zipfile.ZipFile(path_to_billing_folder, 'r') as z:
+                z.extractall(path_to_billing_folder)
             st.success('Billing Folder Uploaded Successfully!')
         else:
             st.sidebar.warning('You need to upload zip folder for Billing Folder')
@@ -51,14 +56,26 @@ if user_input_excel is not None:
             # Pengolahan data
             df = pd.read_excel(user_input_excel)
             st.write(df)
+            st.write(path_to_billing_folder)
+
+            # path_to_pdf = os.path.join(target_path, str(os.listdir(target_path)[0]))
+            # # st.write(path_to_pdf)
+    
+            # file_path_pdf = os.listdir(path_to_pdf)
+            # # st.write(file_path_pdf)
+            
             for i in range(len(df)):
                 no_po = df['NO PO'][i]
                 nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
                 
                 st.write(nama_file_billing)
                 pattern = nama_file_billing # Match all .txt files in the current directory
-                found_files = glob.glob(pattern)
-                st.write(found_files)
+                directory_path = "."
+
+found_files = []
+for filename in os.listdir(directory_path):
+    if re.match(regex_pattern, filename):
+        found_files.append(filename)
             
                 
         else :
