@@ -73,13 +73,13 @@ if user_input_excel is not None:
                 st.write(path_to_pdf_billing)
                 # st.write(os.listdir('/mount/src/ocr_pajak_2/Billing/Billing'))
 
-                reader_billing = PdfReader(path_to_pdf_billing)
-                a=[]
-                # Iterate through pages and extract text
-                extracted_text = ""
-                for page in reader_billing.pages:
-                    extracted_text += page.extract_text()
-                a = [extracted_text]
+                # reader_billing = PdfReader(path_to_pdf_billing)
+                # a=[]
+                # # Iterate through pages and extract text
+                # extracted_text = ""
+                # for page in reader_billing.pages:
+                #     extracted_text += page.extract_text()
+                # a = [extracted_text]
                 # st.write(a)
 
                 extracted_text_b567 = ""
@@ -92,7 +92,12 @@ if user_input_excel is not None:
                         text = cropped.extract_text()
                         if text:
                             extracted_text_b567 += text.strip()
-                st.write(extracted_text_b567)
+                # st.write(extracted_text_b567)
+                extracted_text_no_billing = re.findall('(?<=Nomor Billing : )[^ ].*', extracted_text_b567)
+                extracted_text_tanggal = re.findall('(?<=Tanggal : )[^ ].*', extracted_text_b567)
+
+                st.write(extracted_text_no_billing)
+                st.write(extracted_text_tanggal)
 
 
             
