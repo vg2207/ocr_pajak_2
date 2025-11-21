@@ -70,12 +70,12 @@ if user_input_excel is not None:
                 
                 st.write(nama_file_billing)
                 pattern = nama_file_billing # Match all .txt files in the current directory
-                directory_path = "."
+                # directory_path = "."
 
-found_files = []
-for filename in os.listdir(directory_path):
-    if re.match(regex_pattern, filename):
-        found_files.append(filename)
+                # found_files = []
+                # for filename in os.listdir(directory_path):
+                #     if re.match(regex_pattern, filename):
+                #         found_files.append(filename)
             
                 
         else :
