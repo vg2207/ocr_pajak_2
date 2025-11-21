@@ -31,6 +31,25 @@ user_input_folder_billing = st.file_uploader("Upload pdf Billing Folder", type=[
 user_input_folder_bpn = st.file_uploader("Upload pdf BPN Folder", type=['zip'], accept_multiple_files=False, key='file_uploader_3')
 
 if user_input_excel is not None:
+    if user_input_excel.name.endswith('.xlsx'):
+        df = pd.read_excel(user_input_excel)
+        st.success('File Uploaded Successfully!')
+
+        st.write(df)
+
+        # lower_col = []
+        # upper_col = ['Nomer Karyawan Perusahaan', 'Nama Lengkap']
+        # df = lowerify_and_upperify_cols(df, lower_col, upper_col)
+        # df = remove_duplicate(df, drop_col='Nomer Karyawan Perusahaan')
+        # df = df.loc[(df['Kategori Level'] != 'Executive Manager / Advisor / BOD / BOC')].reset_index(drop=True)
+        # df.rename(columns = {"Nomer Karyawan Perusahaan":"ID Karyawan"}, inplace = True)
+    else:
+        st.sidebar.warning('You need to upload a csv or an excel file')
+
+
+
+
+    
     if user_input_folder_billing is not None:
         if user_input_folder_bpn is not None:
             pass
