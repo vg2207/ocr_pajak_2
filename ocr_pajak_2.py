@@ -69,7 +69,7 @@ if user_input_excel is not None:
             for i in range(len(df)):
                 no_po = df['NO PO'][i]
                 nama_file_billing = 'Billing ' + str(no_po) + '.pdf'
-                path_to_pdf_billing = os.path.join(target_path, nama_file_billing)
+                path_to_pdf_billing = os.path.join(path_to_billing_folder, nama_file_billing)
                 st.write(path_to_pdf_billing)
 
 
