@@ -80,7 +80,7 @@ if user_input_excel is not None:
                 for page in reader_billing.pages:
                     extracted_text += page.extract_text()
                 a = [extracted_text]
-                st.write(a)
+                # st.write(a)
 
                 extracted_text_b567 = ""
 
