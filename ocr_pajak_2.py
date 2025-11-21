@@ -98,16 +98,12 @@ if user_input_excel is not None:
                 
                 path_to_pdf_BPN = glob.glob(str(path_to_pdf_BPN))
                 # st.write(path_to_pdf_BPN)
-                
-
-        
-
-
+ 
                 reader_BPN = PdfReader(path_to_pdf_BPN[0])
                 a=[]
                 # Iterate through pages and extract text
                 extracted_text = ""
-                for page in reader_billing.pages:
+                for page in reader_BPN.pages:
                     extracted_text += page.extract_text()
                 a = [extracted_text]
                 st.write(a)
