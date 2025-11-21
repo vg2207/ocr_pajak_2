@@ -97,20 +97,20 @@ if user_input_excel is not None:
                 path_to_pdf_BPN = os.path.join(path_to_BPN_folder, os.path.splitext(user_input_folder_bpn.name)[0], pattern_nama_file_BPN)
                 
                 path_to_pdf_BPN = glob.glob(str(path_to_pdf_BPN))
-                st.write(path_to_pdf_BPN)
+                # st.write(path_to_pdf_BPN)
                 
 
         
 
 
-                # reader_billing = PdfReader(path_to_pdf_billing)
-                # a=[]
-                # # Iterate through pages and extract text
-                # extracted_text = ""
-                # for page in reader_billing.pages:
-                #     extracted_text += page.extract_text()
-                # a = [extracted_text]
-                # st.write(a)
+                reader_BPN = PdfReader(path_to_pdf_BPN[0])
+                a=[]
+                # Iterate through pages and extract text
+                extracted_text = ""
+                for page in reader_billing.pages:
+                    extracted_text += page.extract_text()
+                a = [extracted_text]
+                st.write(a)
 
             st.write(df)
 
