@@ -60,9 +60,9 @@ if user_input_excel is not None:
 
             # Pengolahan data
             df = pd.read_excel(user_input_excel)
-            st.write(df)
-            st.write(path_to_billing_folder)
-            st.write(path_to_BPN_folder)
+            # st.write(df)
+            # st.write(path_to_billing_folder)
+            # st.write(path_to_BPN_folder)
 
             
             
@@ -95,11 +95,9 @@ if user_input_excel is not None:
 
                 pattern_nama_file_BPN = 'BPN_' + str(extracted_text_no_billing[0]) + '*.pdf'
                 path_to_pdf_BPN = os.path.join(path_to_BPN_folder, os.path.splitext(user_input_folder_bpn.name)[0], pattern_nama_file_BPN)
-                for name in glob.glob(str(path_to_pdf_BPN)):
-                    st.write(name)
-                # found_files = glob.glob(pattern_nama_file_BPN)
-                # st.write(found_files)
-                # path_to_pdf_billing = os.path.join(path_to_billing_folder, os.path.splitext(user_input_folder_billing.name)[0], nama_file_billing)
+                
+                path_to_pdf_BPN = glob.glob(str(path_to_pdf_BPN))
+                st.write(path_to_pdf_BPN)
                 
 
         
