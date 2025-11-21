@@ -70,8 +70,29 @@ if user_input_excel is not None:
                 no_po = df['NO PO'][i]
                 nama_file_billing = 'BILLING ' + str(no_po) + '.pdf'
                 path_to_pdf_billing = os.path.join(path_to_billing_folder, os.path.splitext(user_input_folder_billing.name)[0], nama_file_billing)
-                st.write(path_to_pdf_billing)
-                # st.write(os.listdir('/mount/src/ocr_pajak_2/Billing/Billing'))
+
+                extracted_text_billing_pdf = ""
+
+                with pdfplumber.open(path_to_pdf_billing) as pdf:
+                    for page in pdf.pages:
+                        # Use a corrected bounding box (x0, y0, x1, y1)
+                        # (left, bottom, right, top)
+                        cropped = page.within_bbox((int(0/20.35*595), int((3.5)/20.35*595), int(15/20.35*595), int((4.5)/20.35*595)))
+                        text = cropped.extract_text()
+                        if text:
+                            extracted_text_billing_pdf += text.strip()
+
+                extracted_text_no_billing = re.findall('(?<=Nomor Billing : )[^ ].*', extracted_text_billing_pdf)
+                extracted_text_tanggal = re.findall('(?<=Tanggal : )[^ ].*', extracted_text_billing_pdf)
+
+                # st.write(extracted_text_no_billing)
+                # st.write(extracted_text_tanggal)
+                
+                df['NO BILLING'][i] = extracted_text_no_billing[0]
+                df['TANGGAL'][i] = extracted_text_no_tanggal[0]
+
+        
+
 
                 # reader_billing = PdfReader(path_to_pdf_billing)
                 # a=[]
@@ -82,23 +103,7 @@ if user_input_excel is not None:
                 # a = [extracted_text]
                 # st.write(a)
 
-                extracted_text_b567 = ""
-
-                with pdfplumber.open(path_to_pdf_billing) as pdf:
-                    for page in pdf.pages:
-                        # Use a corrected bounding box (x0, y0, x1, y1)
-                        # (left, bottom, right, top)
-                        cropped = page.within_bbox((int(0/20.35*595), int((3.5)/20.35*595), int(15/20.35*595), int((4.5)/20.35*595)))
-                        text = cropped.extract_text()
-                        if text:
-                            extracted_text_b567 += text.strip()
-                # st.write(extracted_text_b567)
-                extracted_text_no_billing = re.findall('(?<=Nomor Billing : )[^ ].*', extracted_text_b567)
-                extracted_text_tanggal = re.findall('(?<=Tanggal : )[^ ].*', extracted_text_b567)
-
-                st.write(extracted_text_no_billing)
-                st.write(extracted_text_tanggal)
-
+            st.write(df)
 
             
                 
