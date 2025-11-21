@@ -20,19 +20,8 @@ import pdfplumber
 
 st.set_page_config(layout="wide")
 
-st.markdown(f"<h1 style='text-align: center;'>WELCOME TO OCR PAJAK<br>LAUTAN LUAS</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='text-align: center;'>WELCOME TO OCR PAJAK 2<br>LAUTAN LUAS</h1>", unsafe_allow_html=True)
 
-# if "page" not in st.session_state:
-#     st.session_state["page"] = 0
-
-# if st.session_state["page"] == 0 :
-#     tombol_mulai = st.button(type="primary", label='Mulai')
-#     if tombol_mulai:
-#         st.session_state.page = 1
-#         st.rerun()
-
-
-# if st.session_state["page"] == 1:
 
 
 user_input_excel = st.file_uploader("Upload pdf folder", type=['xlsx'], accept_multiple_files=False, key='file_uploader_1')
