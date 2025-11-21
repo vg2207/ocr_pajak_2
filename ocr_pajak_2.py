@@ -88,8 +88,8 @@ if user_input_excel is not None:
                 # st.write(extracted_text_no_billing)
                 # st.write(extracted_text_tanggal)
                 
-                df['NO BILLING'][i] = extracted_text_no_billing[0]
-                df['TANGGAL'][i] = extracted_text_tanggal[0]
+                df['NO BILLING'][i] = str(extracted_text_no_billing[0])
+                df['TANGGAL'][i] = str(extracted_text_tanggal[0])
 
 
 
@@ -112,9 +112,13 @@ if user_input_excel is not None:
                 extracted_text_no_dokumen = re.findall('(?<=NOMOR DOKUMEN : )[^ ]+(?=\s)', a[0])
                 extracted_text_jumlah_setoran = re.findall('(?<=JUMLAH SETORAN : )[^ ]+(?=\s)', a[0])
 
-                st.write(extracted_text_ntpn)
-                st.write(extracted_text_no_dokumen)
-                st.write(extracted_text_jumlah_setoran)
+                # st.write(extracted_text_ntpn)
+                # st.write(extracted_text_no_dokumen)
+                # st.write(extracted_text_jumlah_setoran)
+
+                df['NTPN'][i] = str(extracted_text_ntpn[0])
+                df['NOMOR DOKUMEN'][i] = str(extracted_text_no_dokumen[0])
+                df['JUMLAH SETORAN'][i] = str(extracted_text_jumlah_setoran[0])
                 
 
             st.write(df)
