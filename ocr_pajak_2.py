@@ -93,7 +93,7 @@ if user_input_excel is not None:
 
 
 
-                pattern_nama_file_BPN = 'BPN_' + str(extracted_text_no_billing[0]) + '?.pdf'
+                pattern_nama_file_BPN = 'BPN_' + str(extracted_text_no_billing[0]) + '*.pdf'
                 path_to_pdf_BPN = os.path.join(path_to_BPN_folder, os.path.splitext(user_input_folder_bpn.name)[0], pattern_nama_file_BPN)
                 for name in glob.glob(str(path_to_pdf_BPN)):
                     st.write(name)
