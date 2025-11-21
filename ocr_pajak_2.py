@@ -89,7 +89,7 @@ if user_input_excel is not None:
                 # st.write(extracted_text_tanggal)
                 
                 df['NO BILLING'][i] = extracted_text_no_billing[0]
-                df['TANGGAL'][i] = extracted_text_no_tanggal[0]
+                df['TANGGAL'][i] = extracted_text_tanggal[0]
 
         
 
