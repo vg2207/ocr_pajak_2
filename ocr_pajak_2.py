@@ -14,7 +14,7 @@ import streamlit as st
 # import pdfplumber
 
 
-set_output_feeder_2 = st.number_input("pH", value=None, placeholder="", key="set_output_feeder_2", step=0.1, min_value=0, max_value = 10.0, format="%0.1f")
+set_output_feeder_2 = st.number_input("pH", value=None, placeholder="", key="set_output_feeder_2", step=0.1, min_value=0, max_value = 10)
 
 
 
