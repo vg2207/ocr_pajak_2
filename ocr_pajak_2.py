@@ -15,6 +15,7 @@ import streamlit as st
 
 
 set_output_feeder_2 = st.number_input("pH", value=None, placeholder="", key="set_output_feeder_2", step=0.1, min_value=0.0, max_value = 10.0)
+foto_mesin = st.camera_input("Ambil foto panel mesin extruder", key="foto_mesin")
 
 
 
