@@ -20,7 +20,7 @@ st.markdown(f"<h1 style='text-align: center;'>WELCOME TO OCR PAJAK 2<br>LAUTAN L
 
 
 
-user_input_excel = st.file_uploader("Upload pdf folder", type=['xlsx'], accept_multiple_files=False, key='file_uploader_1')
+user_input_excel = st.file_uploader("Upload excel file", type=['xlsx'], accept_multiple_files=False, key='file_uploader_1')
     
 user_input_folder_billing = st.file_uploader("Upload pdf Billing Folder", type=['zip'], accept_multiple_files=False, key='file_uploader_2')
 
